@@ -35,8 +35,8 @@ let rec lang4 l4 =
   [] -> false
   | ['1'] -> false
   | ['0'] -> false
-  | '0' :: t -> if l4 = '1' :: t then lang4 l4 else false
-  | '1' :: t -> lang4 t
+  | '0' :: t -> if t = '1' :: t then lang4 t else false
+  | '1' :: t -> if t = '1' :: t then lang4 t else true
   | _ :: _ -> false
 
 let lang5 _ = failwith ""
