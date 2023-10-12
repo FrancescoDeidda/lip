@@ -30,16 +30,14 @@ let rec lang3 l3 =
   | _ :: _ -> false
 
 (*   0*10*10*   *)
-let lang4 l4 = 
+let rec lang4 l4 = 
   match l4 with
-  ['1'] -> false
+  [] -> false
+  | ['1'] -> false
   | ['0'] -> false
-  | '0' :: t -> (let rec lang41 l41 = match l41 with 
-                  '0' -> false
-                  |'1' :: t -> lang41 l41)
-  | '1' :: t -> lang4 l4
+  | '0' :: t -> if l4 = '1' :: t then lang4 l4 else false
+  | '1' :: t -> lang4 t
   | _ :: _ -> false
-
 
 let lang5 _ = failwith ""
     
