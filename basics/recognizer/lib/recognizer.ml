@@ -39,9 +39,12 @@ let rec lang4 l4 =
   | '1' :: t -> if t = '1' :: t then lang4 t else true
   | _ :: _ -> false
 
-let lang5 _ = failwith ""
+let lang5 l5 = match l5 with
+'0' :: t -> if t = '0' :: [] then true 
+|'1' :: t -> if t = '1' :: [] then true 
+| _ :: _ -> false 
     
-let recognizers = [lang1;lang2;lang3;lang4] (*;lang5]*)
+let recognizers = [lang1;lang2;lang3;lang4;lang5]
                   
 let belongsTo w = List.map (fun f -> f w) recognizers
   
